@@ -12,7 +12,7 @@ export function BeneficiosInclusos() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#360505] to-[#080808] border-y border-white/5">
+    <section className="py-24 bg-[#1a0505] border-y border-white/5">
       <div className="container px-4 max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-display font-black tracking-tighter mb-12">O que você recebe ao se filiar?</h2>
         
