@@ -7,8 +7,8 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-muted-foreground: hsl(var(--muted-foreground));
   
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Commissioner", sans-serif;
+  --font-display: "Commissioner", sans-serif;
 }
 
 @layer base {
@@ -23,5 +23,6 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: "Commissioner", sans-serif;
   }
 }

@@ -25,7 +25,7 @@ const items = [
 
 export function BeneficiosGrid() {
   return (
-    <section className="py-24 bg-[#080808] relative">
+    <section className="py-24 bg-gradient-to-b from-[#180505] to-[#080808] relative">
       <div className="container px-4 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-display font-black tracking-tighter mb-4">Com você em todo momento</h2>

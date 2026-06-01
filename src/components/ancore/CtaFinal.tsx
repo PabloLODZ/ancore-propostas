@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Download, Phone, Check, Loader2 } from "lucide-react";
+import { Phone, Check, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import type { ProposalData } from "@/pages/PropostaAncore";
@@ -60,7 +60,7 @@ export function CtaFinal({
   };
 
   return (
-    <section id="cta" className="py-24 bg-[#080808] relative overflow-hidden border-t border-red-500/10">
+    <section id="cta" className="py-24 bg-gradient-to-b from-[#180505] to-[#080808] relative overflow-hidden border-t border-red-500/10">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(229,9,20,0.15),transparent_50%)]" />
       
       <div className="container px-4 max-w-3xl mx-auto text-center relative z-10">
@@ -92,14 +92,6 @@ export function CtaFinal({
               Quero aceitar a proposta
             </button>
           )}
-          
-          <button 
-            onClick={() => window.print()}
-            className="w-full sm:w-auto h-14 px-8 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold tracking-widest uppercase text-sm flex items-center justify-center gap-2 transition-all border border-white/10"
-          >
-            <Download size={18} />
-            Baixar PDF / Imprimir
-          </button>
         </div>
       </div>
 

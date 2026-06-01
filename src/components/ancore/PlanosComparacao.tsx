@@ -117,7 +117,7 @@ export function PlanosComparacao({
   const activePlanData = plans[activeTab];
 
   return (
-    <section className="py-24 bg-[#050505]">
+    <section className="py-24 bg-[#080808]">
       <div className="container px-4 max-w-5xl mx-auto">
         <div className="text-center mb-12 flex flex-col items-center">
           <h2 className="text-3xl sm:text-4xl font-display font-black tracking-tighter mb-4">Escolha seu plano</h2>

@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 
 export function PresencaNacional() {
   return (
-    <section className="py-24 relative border-y border-white/5 bg-gradient-to-b from-[#0a0a0a] to-[#120505]">
+    <section className="py-24 relative border-y border-white/5 bg-[#080808]">
       <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(#e50914 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
       
       <div className="container relative z-10 px-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">

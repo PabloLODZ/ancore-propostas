@@ -9,7 +9,7 @@ import { HeroSection } from "@/components/ancore/HeroSection";
 import { BeneficiosGrid } from "@/components/ancore/BeneficiosGrid";
 import { PresencaNacional } from "@/components/ancore/PresencaNacional";
 import { SusepSection } from "@/components/ancore/SusepSection";
-import { ResumoProposta } from "@/components/ancore/ResumoProposta";
+// import { ResumoProposta } from "@/components/ancore/ResumoProposta";
 import { PlanosComparacao } from "@/components/ancore/PlanosComparacao";
 import { BeneficiosInclusos } from "@/components/ancore/BeneficiosInclusos";
 import { MapaLocais } from "@/components/ancore/MapaLocais";
@@ -98,10 +98,12 @@ export default function PropostaAncore({ mode = "view" }: { mode?: "edit" | "vie
     }
   };
 
+  /* Desativado temporariamente junto com o ResumoProposta
   const handleUpdate = (field: keyof ProposalData, value: string) => {
     if (mode !== "edit") return;
     setData((prev) => ({ ...prev, [field]: value }));
   };
+  */
 
   const handleSave = async () => {
     if (mode !== "edit") return;
@@ -213,7 +215,7 @@ export default function PropostaAncore({ mode = "view" }: { mode?: "edit" | "vie
         <PresencaNacional />
         <SusepSection />
         
-        {/* Formulário de Resumo */}
+        {/* Formulário de Resumo desativado temporariamente
         <section id="resumo" className="relative py-24 px-4 sm:px-6 z-10">
           <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-red-950/10 to-black/0 pointer-events-none" />
           <div className="max-w-4xl mx-auto relative z-10">
@@ -225,6 +227,7 @@ export default function PropostaAncore({ mode = "view" }: { mode?: "edit" | "vie
             <ResumoProposta data={data} onUpdate={handleUpdate} mode={mode} />
           </div>
         </section>
+        */}
 
         <PlanosComparacao mode={mode} />
         <BeneficiosInclusos />

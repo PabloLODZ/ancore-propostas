@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, FileText, Phone } from "lucide-react";
+import { ShieldCheck, Phone } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -50,10 +50,12 @@ export function HeroSection() {
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
+          {/* Botão desativado temporariamente
           <a href="#resumo" className="h-14 px-8 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold tracking-widest uppercase text-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_30px_rgba(229,9,20,0.3)] hover:shadow-[0_0_40px_rgba(229,9,20,0.5)] w-full sm:w-auto">
             <FileText size={18} />
             Ver minha proposta
           </a>
+          */}
           <a href="#cta" className="h-14 px-8 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold tracking-widest uppercase text-sm flex items-center justify-center gap-2 transition-all border border-white/10 w-full sm:w-auto">
             <Phone size={18} />
             Falar com consultor
