@@ -60,7 +60,7 @@ export function CtaFinal({
   };
 
   return (
-    <section id="cta" className="py-24 bg-gradient-to-b from-[#180505] to-[#080808] relative overflow-hidden border-t border-red-500/10">
+    <section id="cta" className="py-24 bg-gradient-to-b from-[#360505] to-[#080808] relative overflow-hidden border-t border-red-500/10">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(229,9,20,0.15),transparent_50%)]" />
       
       <div className="container px-4 max-w-3xl mx-auto text-center relative z-10">
