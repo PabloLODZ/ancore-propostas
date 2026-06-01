@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, CarFront, FileText, Phone } from "lucide-react";
+import { ShieldCheck, FileText, Phone } from "lucide-react";
 
-export function HeroSection({ mode = "view" }: { mode?: "edit" | "view" }) {
+export function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-[#080808]">
       {/* Background with red glow and grid */}

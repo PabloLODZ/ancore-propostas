@@ -3,6 +3,16 @@ import { Check, Star, Edit2 } from "lucide-react";
 import type { ProposalData } from "@/pages/PropostaAncore";
 import { cn } from "@/lib/utils";
 
+interface Plan {
+  name: string;
+  desc: string;
+  price: string;
+  cota: string;
+  filiacao: string;
+  features: string[];
+  notIncluded: string[];
+}
+
 export function PlanosComparacao({ 
   mode = "view",
   data,
@@ -15,9 +25,10 @@ export function PlanosComparacao({
   const [activeTab, setActiveTab] = useState<"bronze" | "prata" | "ouro">("prata");
   const [isEditing, setIsEditing] = useState(mode === "edit");
 
-  const [plans, setPlans] = useState({
+  const [plans, setPlans] = useState<Record<"bronze" | "prata" | "ouro", Plan>>({
     bronze: {
       name: "Plano Bronze",
+      desc: "Proteção essencial com excelente custo-benefício.",
       price: "R$ 65,00",
       cota: "R$ 500,00",
       filiacao: "R$ 200,00",
@@ -35,6 +46,7 @@ export function PlanosComparacao({
     },
     prata: {
       name: data?.plano || "Plano Prata",
+      desc: "A melhor relação custo-benefício com guincho ampliado.",
       price: data?.mensalidade || "R$ 88,65",
       cota: data?.cota || "R$ 800,00",
       filiacao: data?.filiacao || "R$ 350,00",
@@ -52,6 +64,7 @@ export function PlanosComparacao({
     },
     ouro: {
       name: "Plano Ouro",
+      desc: "Proteção total sem limites para sua máxima tranquilidade.",
       price: "R$ 125,00",
       cota: "R$ 1.200,00",
       filiacao: "R$ 500,00",
@@ -84,7 +97,7 @@ export function PlanosComparacao({
     }
   }, [data?.plano, data?.mensalidade, data?.cota, data?.filiacao]);
 
-  const updatePlan = (planKey: "bronze" | "prata" | "ouro", field: string, value: string) => {
+  const updatePlan = (planKey: "bronze" | "prata" | "ouro", field: keyof Plan, value: string | string[]) => {
     setPlans(prev => ({
       ...prev,
       [planKey]: {
@@ -93,7 +106,7 @@ export function PlanosComparacao({
       }
     }));
     
-    if (planKey === "prata" && onUpdate) {
+    if (planKey === "prata" && onUpdate && typeof value === "string") {
       if (field === "name") onUpdate("plano", value);
       if (field === "price") onUpdate("mensalidade", value);
       if (field === "cota") onUpdate("cota", value);
@@ -153,17 +166,17 @@ export function PlanosComparacao({
               <div className="space-y-4 mb-8">
                 <input 
                   value={activePlanData.name} 
-                  onChange={e => handleUpdate(activeTab, "name", e.target.value)}
+                  onChange={e => updatePlan(activeTab, "name", e.target.value)}
                   className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2 text-2xl font-black text-white"
                 />
                 <input 
                   value={activePlanData.desc} 
-                  onChange={e => handleUpdate(activeTab, "desc", e.target.value)}
+                  onChange={e => updatePlan(activeTab, "desc", e.target.value)}
                   className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2 text-sm text-gray-400"
                 />
                 <input 
                   value={activePlanData.price} 
-                  onChange={e => handleUpdate(activeTab, "price", e.target.value)}
+                  onChange={e => updatePlan(activeTab, "price", e.target.value)}
                   className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-2 text-3xl font-black text-red-500"
                 />
               </div>
@@ -183,13 +196,13 @@ export function PlanosComparacao({
               <h4 className="text-xs font-black uppercase tracking-widest text-muted-foreground border-b border-white/5 pb-2 mb-4">O que está incluso</h4>
               {isEditing ? (
                 <textarea 
-                  value={activePlanData.features}
-                  onChange={e => handleUpdate(activeTab, "features", e.target.value)}
+                  value={activePlanData.features.join("\n")}
+                  onChange={e => updatePlan(activeTab, "features", e.target.value.split("\n"))}
                   className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-sm text-white min-h-[300px] leading-relaxed"
                 />
               ) : (
                 <ul className="space-y-4">
-                  {activePlanData.features.split("\n").filter(Boolean).map((feat, i) => (
+                  {activePlanData.features.filter(Boolean).map((feat, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="h-5 w-5 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center shrink-0 mt-0.5">
                         <Check size={12} />

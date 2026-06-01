@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { toast } from "sonner";
-import { Loader2, Copy, Save, Share2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { Loader2, Save, Share2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 import { HeroSection } from "@/components/ancore/HeroSection";
 import { BeneficiosGrid } from "@/components/ancore/BeneficiosGrid";
@@ -56,7 +56,6 @@ const defaultData: ProposalData = {
 
 export default function PropostaAncore({ mode = "view" }: { mode?: "edit" | "view" }) {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [data, setData] = useState<ProposalData>(defaultData);
   const [status, setStatus] = useState<string>("pendente");
   const [loading, setLoading] = useState(mode === "view" && !!id);
@@ -209,7 +208,7 @@ export default function PropostaAncore({ mode = "view" }: { mode?: "edit" | "vie
 
       {/* Add padding top if in edit mode so content doesn't hide behind the sticky header */}
       <main className={`relative ${mode === "edit" ? "pt-16" : ""}`}>
-        <HeroSection mode={mode} />
+        <HeroSection />
         <BeneficiosGrid />
         <PresencaNacional />
         <SusepSection />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Download, Phone, Check, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import type { ProposalData } from "@/pages/PropostaAncore";
 

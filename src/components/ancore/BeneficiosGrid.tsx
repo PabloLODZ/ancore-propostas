@@ -10,7 +10,6 @@ import {
   Fuel, 
   CarFront 
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const items = [
   { icon: ShieldAlert, title: "Roubo e Furto", desc: "Cobertura 100% da FIPE em caso de roubo." },
